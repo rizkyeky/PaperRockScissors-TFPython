@@ -6,8 +6,9 @@ from tensorflow.keras.optimizers import Adadelta
 from tensorflow.keras.losses import CategoricalCrossentropy
 
 import numpy as np
+import matplotlib.pyplot as plt
 
-base_dir = 'rockpaperscissors'
+base_dir = 'rockpaperscissors1'
 train_dir = os.path.join(base_dir, 'train')
 validation_dir = os.path.join(base_dir, 'valid')
 
