@@ -1,27 +1,24 @@
 import cv2
 # import numpy as np
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
+
+x = 50
+y = 50
 
 while(True):
-    # Capture frame-by-frame
+
     ret, frame = cap.read()
-    x = 15
-    y = 15
     h, w, c = frame.shape
 
-    frame = frame[x:h-x, y:w] 
-    frame = cv2.resize(frame, (int(frame.shape[1]*0.3), int(frame.shape[0]*0.3)))
+    frame = frame[x:h-x, y:w-y] 
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # frame = cv2.resize(frame, (200,200))
 
-    # Our operations on the frame come here
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-    # Display the resulting frame
     cv2.imshow('frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
 
